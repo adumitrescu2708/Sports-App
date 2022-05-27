@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8"><link rel="stylesheet" href="/style.css">
+
+    <title>Welcome</title>
+</head>
+<body>
+<div class="form">
+    <h1> Welcome, <span th:text="${username}"> </span>! </h1>
+    <form method="post" action="/user/homepage" th:object="${query}">
+
+        <div th:object="${location}">
+            <p> Please enter location: </p>
+            <p style="font-size: 0.6em"> Please enter Country[Optional]: </p>
+            <textarea th:field="*{country}"> Enter Country</textarea>
+            <hr>
+            <p style="font-size: 0.6em"> Please enter State[Optional]: </p>
+            <textarea th:field="*{state}">Enter State</textarea>
+            <hr>
+            <p style="font-size: 0.6em"> Please enter City[Optional]: </p>
+            <textarea th:field="*{city}">Enter City</textarea>
+            <hr>
+        </div>
+
+
+        <p> Select dates: </p>
+        <div class="custom-select" th:object="${query}">
+            <select th:field="*{sport}">
+                <option th:each="sport_type : ${sports}" th:value="${sport_type}" th:text="${sport_type.name}"></option>
+            </select>
+        </div>
+        <br>
+        <hr>
+        <p> Select dates: </p>
+        <div class="custom-select" th:object="${query}">
+            <select th:field="*{dates}" multiple>
+                <option th:each="date_type : ${dates}" th:value="${date_type}" th:text="${date_type.name}"></option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <button>
+            Submit
+        </button>
+        <br>
+        <p class="message">Logout? <a href="/login">Return to homepage</a></p>
+    </form>
+
+</div>
+
+</body>
+</html>

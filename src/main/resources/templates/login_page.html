@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- icons  -->
+<!-- icons  -->
+
+
+<body>
+<div class="form">
+
+    <form method="post" action="/login" th:object="${login_request}">
+        <h2>Login</h2>
+        <!-- Login -->
+
+        <div class="input-box">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username">
+        </div>
+
+        <div class="input-box">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <!-- Submit -->
+
+        <br>
+        <!-- Help -->
+        <button>
+            Submit
+        </button>
+        <br>
+        <p class="message">Not registered? <a href="/register">Create an account</a></p>
+
+    </form>
+</div>
+
+</body>
+</html>

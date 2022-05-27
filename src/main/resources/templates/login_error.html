@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- icons  -->
+<!-- icons  -->
+
+
+<body>
+<div class="form">
+
+    <form method="post" action="/register" th:object="${register_request}">
+        <h2>Login Error!</h2>
+        <hr>
+        <p class="message">Not registered? <a href="/register">Create an account</a></p>
+        <hr>
+        <p class="message">Wrong credentials? <a href="/login">Retry login!</a></p>
+
+    </form>
+</div>
+
+</body>
+</html>

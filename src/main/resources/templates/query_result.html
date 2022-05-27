@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Result</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .box {
+            margin: auto;
+            padding: 15px 30px;
+            width: 200px;
+            min-height: 80px;
+            background: #fff;
+            border-left: 5px solid #f2f2f2;
+            box-shadow: 0 0 20px rgba(0,0,0,.15);
+            font: 7px/7px "Roboto", sans-serif;
+            color: #666;
+        }
+        span.weak {
+            font-weight: lighter;
+            font-size: 0.9em;
+        }
+        .buttons{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+
+<div class="form">
+    <div class="message">
+        <h1> <strong> Query Result: </strong> </h1>
+        <hr>
+    </div>
+    <tr th:each="post : ${posts}">
+        <div class="box">
+            <h1> <strong> <td th:text="${post.getPrettyFormat}" Location ></strong> </h1>
+            <hr>
+            <h2> <span class="weak"> Cost: <td th:text="${post.priceTag.getPriceStr}"> </td></span></h2>
+            <h2> <span class="weak"> Sport: <td th:text="${post.sport.getName}"> </td> </span></h2>
+        </div>
+    </tr>
+    <p class="message">Not enough? <a href="/user/homepage">Try a new search!</a></p>
+    <p class="message">Logout? <a href="/login">Back to homepage!</a></p>
+</div>
+

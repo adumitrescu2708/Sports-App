@@ -1,0 +1,70 @@
+@ Dumitrescu Alexandra
+@ alexandradumitrescu01@outlook.com
+@ 0735873115
+
+Sports App @Atta Systems
+
+    # Table of Contents:
+        # Archive
+        # Repositories & Strategies
+        # Data Structures
+        # Future development
+
+    # Archive
+        # java.com.form - Main packages for MVC structure - Controller, Service and Repositories
+                        - Model package contains the objects used for:
+                            - Query command
+                            - Post object - with Enums for Sports, Dates, Roles
+                                          - Location with Country, State, City
+                                          - Price Tag
+                            - User object - User and Admin (for future development)
+                        - Utils package for main data structures used:
+                            - Generic Node, Tree and generic Pair classes
+
+        # resources     - HTML pages and CSS style
+
+    # Repositories & Strategies
+        # Our proposed MVC contains 2 repositories:
+                        - User Repository
+                            - Stores the users in a HashMap with Pairs<username, password> keys
+                              and Users values.
+                        - Post Repository
+                            - Due to the influence of Query command, we store each Post in 3 objects
+                              1 HashMap with <Sport> key and List<Post> values,
+                              1 HashMap with <Date> key and List<Post> values,
+                              1 Tree with Generic Nodes for Locations (*)
+
+        The results of the query are present on localhost:8080/user/result after
+        a form is send to localhost:8080/user/homepage
+
+    # Data Structures
+        # (*) Tree Structure is used with Generic Nodes, having this model:
+
+         *                  Root
+         *                 /  |  \
+         *            [...] [...]  [...] ---> List of Countries
+         *           / | \  / | \  / | \
+         *       [] [] [] [] [] [] [] [] [] ---> List of States
+         *      /|\ /|\ /|\ /|\ /|\ /|\ /|\
+         *      .... ... ... ... ... .. ....  ---> List of Cities
+
+         Each City stores all Posts available in the specific region.
+
+       # Strategy:
+
+         *      [Example]   Romania - Ilfov - Bucharest - Address#1
+         *                  Romania - Olt - Slatina     - Address#2
+         *
+         *                  Query [Romania] - Ends at Node Romania and returns all leaves in the subtree
+         *                                    Result: Romania-Ilfov@Address1 and Romania-Olt@Address2
+         *
+         *                  Query [Romania, Ilfov] - Ends at Ilfov and returns all leaves in subtree of the State
+         *                                           Result: Romania-Olt@Address2
+
+
+    # Future development
+        # What should be improved?
+          A:    More time should be spent on possible errors, more errors should be covered.
+          A:    Frontend part of the project
+          A:    HTTP cookie sessions and Error Codes
+          A:    Updates on Post prototype, should obtain a list of Sports
